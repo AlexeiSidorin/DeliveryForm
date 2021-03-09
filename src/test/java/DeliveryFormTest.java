@@ -17,14 +17,14 @@ import static com.codeborne.selenide.Selenide.open;
 public class DeliveryFormTest {
 
     LocalDate date = LocalDate.now();
-    LocalDate threeDate = date.plusDays(3);
+    LocalDate threeDays = date.plusDays(3);
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
 
     @Test
     void shouldSubmitRequest() {
         open("http://localhost:9999");
         $("[placeholder='Город']").sendKeys("Майкоп");
-        $("[placeholder='Дата встречи']").doubleClick().sendKeys(formatter.format(threeDate));
+        $("[placeholder='Дата встречи']").doubleClick().sendKeys(formatter.format(threeDays));
         $("[name='name']").sendKeys("Женя");
         $("[name='phone']").sendKeys("+79200000000");
         $("[class='checkbox__box']").click();
