@@ -2,6 +2,7 @@
 import com.codeborne.selenide.Selectors;
 import com.codeborne.selenide.SelenideElement;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.Keys;
 
 
 import java.time.Duration;
@@ -24,6 +25,9 @@ public class DeliveryFormTest {
     void shouldSubmitRequest() {
         open("http://localhost:9999");
         $("[placeholder='Город']").sendKeys("Майкоп");
+        $("[placeholder='Город']").sendKeys(Keys.COMMAND + "a");
+        $("[placeholder='Город']").sendKeys(Keys.DELETE);
+        $("[placeholder='Город']").sendKeys("Казань");
         $("[placeholder='Дата встречи']").doubleClick().sendKeys(formatter.format(threeDays));
         $("[name='name']").sendKeys("Женя");
         $("[name='phone']").sendKeys("+79200000000");
