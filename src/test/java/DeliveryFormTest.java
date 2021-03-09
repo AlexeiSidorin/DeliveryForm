@@ -25,8 +25,7 @@ public class DeliveryFormTest {
     void shouldSubmitRequest() {
         open("http://localhost:9999");
         $("[placeholder='Город']").sendKeys("Майкоп");
-        $("[placeholder='Город']").sendKeys(Keys.COMMAND + "a");
-        $("[placeholder='Город']").sendKeys(Keys.DELETE);
+        $("[placeholder='Город']").sendKeys(Keys.chord(Keys.SHIFT,Keys.HOME),Keys.DELETE);
         $("[placeholder='Город']").sendKeys("Казань");
         $("[placeholder='Дата встречи']").doubleClick().sendKeys(formatter.format(threeDays));
         $("[name='name']").sendKeys("Женя");
